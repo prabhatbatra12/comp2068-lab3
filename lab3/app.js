@@ -43,7 +43,6 @@ app.use(function (req, res, next) {
     next(err);
 });
 
-// error handlers
 
 // development error handler
 // will print stacktrace
@@ -57,8 +56,6 @@ if (app.get('env') === 'development') {
     });
 }
 
-// production error handler
-// no stacktraces leaked to user
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
@@ -66,9 +63,7 @@ app.use(function (err, req, res, next) {
         error: {}
     });
 });
-
 app.set('port', process.env.PORT || 3000);
-
 var server = app.listen(app.get('port'), function () {
     debug('Express server listening on port ' + server.address().port);
 });
